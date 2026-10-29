@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Turaude Studios</title>
+<meta name="description" content="Turaude Studios makes mobile games. Our first game is Stormmorph, a two-minute tornado brawl.">
+<link rel="icon" href="stormmorph/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+/* One column: the studio name, its games as cards, then contact and legal. */
+:root {
+  --bg: #f4f2ee; --surface: #ffffff; --ink: #1f1d2b; --muted: #625f73; --line: #dedbe4; --accent: #e8590c;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Source Sans 3", "Segoe UI", Roboto, Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #15141c; --surface: #1e1c28; --ink: #ecebf2; --muted: #a29fb3; --line: #312e3f; --accent: #ff8a3d; color-scheme: dark; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 18px; line-height: 1.6; }
+.wrap { max-width: 920px; margin: 0 auto; padding: 56px max(20px, env(safe-area-inset-right)) 64px max(20px, env(safe-area-inset-left)); display: grid; gap: 44px; }
+.brand { font-family: var(--display); font-weight: 800; font-size: clamp(40px, 7vw, 64px); line-height: 1; letter-spacing: -.02em; margin: 0; }
+.brand span { color: var(--accent); }
+.tag { color: var(--muted); margin: 14px 0 0; max-width: 56ch; }
+h2 { font-family: var(--display); font-weight: 600; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; }
+.game { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; display: grid; }
+.game img.hero { width: 100%; height: auto; display: block; aspect-ratio: 1024 / 500; object-fit: cover; }
+.game .body { padding: 20px 22px 24px; display: grid; grid-template-columns: 72px 1fr; gap: 16px; align-items: start; }
+.game .icon { width: 72px; height: 72px; border-radius: 16px; }
+.game h3 { font-family: var(--display); font-weight: 800; font-size: 26px; margin: 0; }
+.game p { margin: 6px 0 12px; color: var(--muted); }
+.links { display: flex; flex-wrap: wrap; gap: 10px 18px; font-weight: 600; }
+.pill { display: inline-block; font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--accent); color: var(--accent); }
+a { color: var(--accent); }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+footer { border-top: 1px solid var(--line); padding-top: 20px; color: var(--muted); font-size: 15px; display: flex; flex-wrap: wrap; gap: 8px 24px; }
+@media (max-width: 520px) { .game .body { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <h1 class="brand">Turaude <span>Studios</span></h1>
+    <p class="tag">We make short, chaotic mobile games you can pick up in five seconds and play one more round of.</p>
+  </header>
+
+  <section aria-labelledby="games">
+    <h2 id="games">Games</h2>
+    <article class="game">
+      <img class="hero" src="stormmorph/feature.png" alt="Stormmorph: three mutated tornadoes, water, fire and lightning, tearing through a low-poly town">
+      <div class="body">
+        <img class="icon" src="stormmorph/icon.png" alt="">
+        <div>
+          <h3>Stormmorph</h3>
+          <p>Be the tornado. Eat the town, mutate into fire, water or lightning, and grow bigger than every rival storm in a two-minute round.</p>
+          <div class="links">
+            <span class="pill">Coming soon to Google Play</span>
+            <a href="stormmorph/privacy-policy.html">Privacy policy</a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <footer>
+    <span>Contact: turaudestudios@gmail.com</span>
+    <span>&copy; 2026 Turaude Studios</span>
+  </footer>
+</main>
+</body>
+</html>

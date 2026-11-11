@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 560" role="img" aria-label="Illustrated drifting car and winding racetrack">
+<rect width="780" height="560" fill="#c8d2cb"/>
+<path d="M-85 455C85 340 190 473 312 343S500 168 595 240 761 210 851 90" fill="none" stroke="#192221" stroke-width="170"/>
+<path d="M-85 455C85 340 190 473 312 343S500 168 595 240 761 210 851 90" fill="none" stroke="#f4ede1" stroke-width="4" stroke-dasharray="24 24"/>
+<path d="M-85 455C85 340 190 473 312 343S500 168 595 240 761 210 851 90" fill="none" stroke="#f4ede1" stroke-width="1" opacity=".4"/>
+<g transform="translate(398 252) rotate(-31)"><rect x="-92" y="-46" width="184" height="92" rx="27" fill="#ff8300" stroke="#111" stroke-width="8"/><rect x="-31" y="-37" width="68" height="73" rx="15" fill="#f9efe0" stroke="#111" stroke-width="6"/><path d="M42-37l24 12v51L42 37" fill="#191919"/><rect x="-68" y="-57" width="37" height="15" rx="5" fill="#111"/><rect x="39" y="42" width="37" height="15" rx="5" fill="#111"/><rect x="-68" y="42" width="37" height="15" rx="5" fill="#111"/><rect x="39" y="-57" width="37" height="15" rx="5" fill="#111"/></g>
+<path d="M280 320q-68 5-100 58M283 348q-47 20-63 62" stroke="#f9efe0" stroke-width="11" stroke-linecap="round" fill="none" opacity=".72"/>
+<path d="M652 415h65M685 380v67M90 105h50M115 80v50" stroke="#23392f" stroke-width="5" opacity=".5"/>
+</svg>

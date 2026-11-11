@@ -83,7 +83,6 @@ function stormHero(){
 if ((new URLSearchParams(location.search).get('preview') === 'town' || document.documentElement.dataset.hero === 'town') && $('.storm-canvas')) {
  const poster = $('.hero-poster');
  poster.classList.add('town-mode');
- $('.poster-hint').textContent = 'MOVE TO STEER · EAT 💧🔥⚡ TO MORPH';
  import('/storm-town.js').then(m => m.default($('.storm-canvas')));
 } else stormHero();
 
@@ -95,30 +94,5 @@ document.addEventListener('keydown',e=>{
  if(cheatPos===cheat.length){cheatPos=0;const on=document.body.classList.toggle('chaos-mode');toast(on?'Cheat accepted: CHAOS MODE ON':'Chaos mode off. Phew.')}
 });
 
-const adminLogin=$('#admin-login-form');
-async function api(url,options={}){const r=await fetch(url,{credentials:'same-origin',...options});let data;try{data=await r.json()}catch{data={error:'Unexpected response'}}if(!r.ok)throw new Error(data.error||'Request failed');return data;}
-const setNodeText=(element,text)=>{const n=$(element);if(n)n.textContent=text};
-const mk=(tag,attributes={},text)=>{const el=document.createElement(tag);Object.entries(attributes).forEach(([k,v])=>el.setAttribute(k,v));if(text!==undefined)el.textContent=String(text);return el};
-function buildGames(games){
- const wrap=$('#admin-game-editors');wrap.replaceChildren();
- games.forEach(game=>{
-  const card=mk('div',{class:'admin-game-panel'});card.append(mk('h4',{},game.title));const form=mk('form',{'class':'admin-grid'});
-  const props=[['title','Title'],['eyebrow','Eyebrow'],['summary','Short description'],['description','Full description'],['status','Status'],['genre','Genre'],['platform','Platform'],['store_url','Store URL']];
-  props.forEach(([field,label])=>{const l=mk('label',{class:field==='summary'||field==='description'?'wide':''},label.toUpperCase());const input=field==='summary'||field==='description'?mk('textarea',{name:field,rows:field==='description'?'4':'2',maxlength:field==='description'?'1200':'220'}):mk('input',{name:field,type:'text',maxlength:'250'});input.value=game[field]||'';l.append(input);form.append(l)});
-  const b=mk('button',{'class':'button button-orange','type':'submit'},'SAVE CHANGES ↗');form.append(b);
-  form.addEventListener('submit',async e=>{e.preventDefault();b.disabled=true;try{const body=Object.fromEntries(new FormData(form));await api('/api/admin/games/'+encodeURIComponent(game.slug),{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});toast('Game updated.');}catch(err){toast(err.message)}finally{b.disabled=false}});
-  card.append(form);wrap.append(card);
- });
-}
-function buildTable(target,items,cols){const wrap=$(target);wrap.replaceChildren();if(!items.length){wrap.append(mk('p',{},'Nothing here yet.'));return}const table=mk('table',{class:'admin-table'});const head=mk('tr');cols.forEach(([key,label])=>head.append(mk('th',{},label)));table.append(head);items.forEach(item=>{const tr=mk('tr');cols.forEach(([key])=>tr.append(mk('td',{},item[key]||'')));table.append(tr)});wrap.append(table)}
-async function loadAdmin(){
- try{const [g,m,s]=await Promise.all([api('/api/admin/games'),api('/api/admin/messages'),api('/api/admin/subscribers')]);
-  $('#admin-login').hidden=true;$('#admin-dashboard').hidden=false;buildGames(g.games);buildTable('#admin-messages',m.messages,[['created_at','Date'],['name','From'],['email','Email'],['topic','Topic'],['message','Message']]);buildTable('#admin-subscribers',s.subscribers,[['consent_at','Date'],['email','Email'],['status','Status']]);
- }catch{$('#admin-login').hidden=false;$('#admin-dashboard').hidden=true}
-}
-if(adminLogin){loadAdmin();adminLogin.addEventListener('submit',async e=>{e.preventDefault();setNodeText('#login-result','Checking…');try{await api('/api/admin/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:$('#admin-password').value})});$('#admin-password').value='';setNodeText('#login-result','');loadAdmin();}catch(err){setNodeText('#login-result',err.message)}});
- $('#logout-button')?.addEventListener('click',async()=>{await api('/api/admin/logout',{method:'POST'});location.reload()});
- $('#update-form')?.addEventListener('submit',async e=>{e.preventDefault();try{await api('/api/admin/updates',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(e.currentTarget)))});e.currentTarget.reset();toast('Update published to homepage.')}catch(err){toast(err.message)}});
-}
 
 document.querySelectorAll('[data-yt]').forEach(b=>b.addEventListener('click',()=>{const f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(b.dataset.yt)+'?autoplay=1&rel=0';f.title='Stormmorph short';f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;b.replaceChildren(f);b.style.cursor='default';},{once:true}));

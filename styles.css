@@ -913,3 +913,44 @@ h1, h2, h3 { letter-spacing: -0.025em; }
 }
 .game-card-bottom > div { min-width: 0; }
 .game-card h3 { overflow-wrap: break-word; }
+
+/* Stormmorph page */
+.storm-page .detail-visual .game-art { aspect-ratio: 16/9; }
+.storm-features .feature-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; margin-top: 22px; }
+.feature-grid > div { border: 2px solid var(--ink); border-radius: var(--radius-lg); padding: 24px; background: var(--white); box-shadow: var(--shadow-card); }
+.feature-grid h3 { font: 800 24px/1.05 var(--heading); margin: 16px 0 10px; }
+.feature-grid p { font-size: 14px; line-height: 1.7; color: var(--gray); margin: 0; }
+.media-grid { display: grid; grid-template-columns: minmax(220px, 340px) 1fr; gap: 50px; align-items: start; }
+.short-frame { display: block; position: relative; width: 100%; aspect-ratio: 9/16; margin-top: 18px; padding: 0; border: 2px solid var(--ink); border-radius: var(--radius-lg); overflow: hidden; background: var(--ink); cursor: pointer; box-shadow: var(--shadow-card); }
+.short-frame img, .short-frame iframe { width: 100%; height: 100%; object-fit: cover; display: block; border: 0; }
+.play-badge { position: absolute; inset: 0; margin: auto; width: 74px; height: 74px; border-radius: 50%; background: var(--orange); color: var(--ink); display: grid; place-items: center; font-size: 28px; border: 2px solid var(--ink); transition: transform .2s; }
+.short-frame:hover .play-badge { transform: scale(1.1); }
+.social-row { display: flex; gap: 22px; margin-top: 18px; flex-wrap: wrap; }
+.shot-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 18px; }
+.shot { position: relative; display: block; border: 2px solid var(--ink); border-radius: var(--radius-md); overflow: hidden; background: var(--ink); }
+.shot img { width: 100%; height: auto; aspect-ratio: 16/9; object-fit: cover; display: block; transition: transform .5s cubic-bezier(0.16, 1, 0.3, 1); }
+.shot:hover img { transform: scale(1.05); }
+.shot span { position: absolute; left: 10px; bottom: 10px; font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; background: rgba(17,17,17,.88); color: #fff; padding: 7px 10px; border-radius: 4px; }
+.shot:first-child { grid-column: 1 / -1; }
+.storm-links { display: grid; grid-template-columns: 1.2fr .8fr; gap: 50px; align-items: center; border-top: 1px solid var(--line); }
+.storm-links p { font-size: 15px; line-height: 1.75; color: var(--gray); max-width: 640px; }
+.button-outline-dark { border: 2px solid var(--ink); color: var(--ink); background: transparent; }
+.button-outline-dark:hover { background: var(--ink); color: var(--white); }
+.press-game { display: grid; grid-template-columns: 1fr 1fr; gap: 75px; border-top: 1px solid var(--line); }
+.press-game h2 { font: 900 clamp(56px, 6vw, 90px)/.9 var(--heading); margin: 14px 0 20px; }
+.press-game p { font-size: 15px; line-height: 1.75; color: var(--gray); }
+.press-game .press-facts { margin-top: 25px; }
+.press-downloads { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 18px; }
+.press-downloads a { display: block; border: 2px solid var(--ink); border-radius: var(--radius-md); overflow: hidden; background: var(--white); }
+.press-downloads img { width: 100%; height: auto; aspect-ratio: 16/9; object-fit: cover; display: block; background: var(--ink); }
+.press-downloads span { display: block; padding: 9px 12px; font-size: 10px; font-weight: 800; letter-spacing: .12em; }
+.press-downloads a:hover span { color: var(--orange); }
+@media (max-width: 1100px) {
+  .storm-features .feature-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 760px) {
+  .storm-features .feature-grid, .media-grid, .storm-links, .press-game { grid-template-columns: 1fr; }
+  .media-grid > div:first-child { max-width: 340px; }
+  .shot-grid, .press-downloads { grid-template-columns: 1fr; }
+}
+.storm-page .detail-left h1 { font-size: clamp(58px, 15vw, 165px); }

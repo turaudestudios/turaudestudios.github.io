@@ -120,3 +120,5 @@ if(adminLogin){loadAdmin();adminLogin.addEventListener('submit',async e=>{e.prev
  $('#logout-button')?.addEventListener('click',async()=>{await api('/api/admin/logout',{method:'POST'});location.reload()});
  $('#update-form')?.addEventListener('submit',async e=>{e.preventDefault();try{await api('/api/admin/updates',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(e.currentTarget)))});e.currentTarget.reset();toast('Update published to homepage.')}catch(err){toast(err.message)}});
 }
+
+document.querySelectorAll('[data-yt]').forEach(b=>b.addEventListener('click',()=>{const f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(b.dataset.yt)+'?autoplay=1&rel=0';f.title='Stormmorph short';f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;b.replaceChildren(f);b.style.cursor='default';},{once:true}));

@@ -954,3 +954,13 @@ h1, h2, h3 { letter-spacing: -0.025em; }
   .shot-grid, .press-downloads { grid-template-columns: 1fr; }
 }
 .storm-page .detail-left h1 { font-size: clamp(58px, 15vw, 165px); }
+
+/* Locked game */
+.game-card.is-locked { cursor: not-allowed; user-select: none; }
+.game-card.is-locked:hover { transform: none; box-shadow: var(--shadow-card); }
+.game-card.is-locked .game-art { filter: grayscale(1) blur(1.5px); opacity: .55; }
+.game-card.is-locked:hover .game-art { transform: none; }
+.game-card.is-locked h3, .game-card.is-locked p, .game-card.is-locked .game-card-tag { opacity: .6; }
+.locked-stamp { position: absolute; z-index: 2; font: 900 clamp(28px, 4vw, 46px) var(--heading); letter-spacing: .08em; color: var(--white); background: var(--ink); padding: 8px 22px; border-radius: var(--radius-md); transform: rotate(-6deg); }
+.status-locked { font-size: 11px; font-weight: 800; letter-spacing: .1em; color: #888; }
+.lock-badge { filter: grayscale(.2); }

@@ -5,10 +5,31 @@ function toast(text){const el=$('#toast');if(!el)return;el.textContent=text;el.c
 $('.menu-toggle')?.addEventListener('click',()=>{const h=$('.site-header');const expanded=h.classList.toggle('open');$('.menu-toggle').setAttribute('aria-expanded',String(expanded));});
 
 // Form Submissions
+// Web3Forms (web3forms.com) delivers the contact form and the launch sign-ups straight to the studio inbox.
+// The access key is public by design (it can only send to the inbox it was made for). Empty = fall back to mailto.
+const WEB3FORMS_KEY='cbd4eb5c-8c50-4ed9-9cca-c200546df0b0';
 const staticSite=document.documentElement.hasAttribute('data-static');
+async function sendWeb3Forms(form){
+ const submit=$('button[type=submit]',form);const feedback=$('.form-feedback',form);
+ const d=Object.fromEntries(new FormData(form).entries());
+ if(d.website){form.reset();feedback.textContent='Thanks!';return}	// honeypot: bots fill the hidden field
+ const signup=form.dataset.endpoint==='/api/subscribe';
+ const payload=signup
+  ?{access_key:WEB3FORMS_KEY,subject:'Launch sign-up: '+(d.email||''),from_name:'Turaude website',email:d.email,message:`Please email me when Turaude games launch.\n\n${d.email||''}`,page:location.pathname}
+  :{access_key:WEB3FORMS_KEY,subject:`[${d.topic||'Website'}] Message from ${d.name||'the website'}`,from_name:d.name||'Turaude website',name:d.name,email:d.email,topic:d.topic,message:d.message,page:location.pathname};
+ if(submit)submit.disabled=true;feedback.textContent='Sending…';
+ try{
+  const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(payload)});
+  const body=await res.json().catch(()=>({}));
+  if(res.ok&&body.success!==false){form.reset();const msg=signup?"You're on the list. We'll email you at launch.":"Thanks! Your message reached us. We'll reply by email.";feedback.textContent=msg;toast(msg)}
+  else feedback.textContent='Could not send right now. Please email turaudestudios@gmail.com.';
+ }catch{feedback.textContent='Could not connect. Please email turaudestudios@gmail.com.'}
+ finally{if(submit)submit.disabled=false}
+}
 $$('.ajax-form').forEach(form=>form.addEventListener('submit',async e=>{
  e.preventDefault();
- if(staticSite){	// GitHub Pages has no backend: hand the message to the visitor's email app instead
+ if(staticSite&&WEB3FORMS_KEY){await sendWeb3Forms(form);return}
+ if(staticSite){	// No form service key yet: hand the message to the visitor's email app instead
   const d=Object.fromEntries(new FormData(form).entries());const to=document.documentElement.dataset.contact;
   const subject=form.dataset.endpoint==='/api/subscribe'?'Notify me about Turaude games':`[${d.topic||'Website'}] Message from ${d.name||'the website'}`;
   const body=form.dataset.endpoint==='/api/subscribe'?`Please let me know when your games launch: ${d.email||''}`:`${d.message||''}\n\n${d.name||''} <${d.email||''}>`;

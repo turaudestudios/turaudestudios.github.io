@@ -7,7 +7,7 @@ google.com, pub-3286308364025895, DIRECT, f08c47fec0942fa0
 ironsrc.com, 696249, DIRECT
 unity.com, 159716580, DIRECT, 96cabb5fbdde37a7
 
-# Unity Ads authorized sellers (Unity Dashboard, 2026-10-29)
+# Unity Ads authorized sellers (Unity Dashboard, 2026-11-17)
 adwmg.com, 159512, RESELLER, c9688a22012618e7
 appads.in, 106246, RESELLER
 appnexus.com, 11826, RESELLER, f5ab79cb980f11d1
@@ -69,6 +69,7 @@ openx.com, 561446248, RESELLER, 6a698e2ec38604c6
 openx.com, 563905670, RESELLER, 6a698e2ec38604c6
 openx.com, 565175463, RESELLER, 6a698e2ec38604c6
 opera.com, pub6148735850944, RESELLER, 55a0c5fd61378de3
+playdigo.com, 1965, RESELLER
 playwire.com, 1018531, RESELLER
 pokkt.com, 6246, RESELLER, c45702d9311e25fd
 prado.co, 14260, RESELLER
@@ -170,7 +171,7 @@ xandr.com, 7353, RESELLER
 zetaglobal.net, 525, RESELLER
 zmaticoo.com, 5135195, RESELLER
 
-# ironSource Ads authorized sellers (LevelPlay docs, 2026-10-29)
+# ironSource Ads authorized sellers (Unity Grow docs: programmatic/ironsource-exchange/app-ads-txt, 2026-11-17)
 media.net, 8CUH2L333, RESELLER
 sharethrough.com, 3817, RESELLER, d53b998a7bd4ecd2
 playdigo.com, 1956, RESELLER
@@ -190,7 +191,6 @@ rubiconproject.com, 22134, RESELLER, 0bfd66d529a55807
 start.io, 116712987, RESELLER
 criteo.com, b-062019, RESELLER, 9fac4a4a87c2a44f
 pubmatic.com, 162588, RESELLER, 5d62403b186f2ace
-inmobi.com, 23d316d3d980453d8ea0dcf9caec4078, RESELLER, 83e75a7ae333ca9d
 ignitemediatech.com, pub_11113, RESELLER
 kidoz.net, 15648, RESELLER, a109366414b7335e
 prado.co, 15648, RESELLER
@@ -200,6 +200,7 @@ improvedigital.com, 2858, RESELLER
 xandr.com, 13923, RESELLER
 video.unrulymedia.com, 1058378980, RESELLER
 themediagrid.com, 7MYRZ3, RESELLER, 9fac4a4a87c2a44f
+rubiconproject.com, 25978, RESELLER
 taurusx.com, 80070, RESELLER
 triplelift.com, 12652, RESELLER, 6c33edb13117fd86
 rubiconproject.com, 15526, RESELLER, 0bfd66d529a55807
@@ -207,6 +208,7 @@ videoheroes.tv, 212550, RESELLER, 064bc410192443d8
 media.net, 8CU7H33B7, RESELLER
 onlinemediasolutions.com, 20498, RESELLER, b3868b187e4b6402
 brightcom.com, 20498, RESELLER
+sharethrough.com, 5828, RESELLER, 060d053dcf45cbf3
 e-planning.net, f5147a97818958f1, RESELLER, c1ba615865ed87b2
 odeeo.io, 199038217, RESELLER, 36cfd73091d5c3fc
 video.unrulymedia.com, 848837292, RESELLER
@@ -235,3 +237,4 @@ xandr.com, 16856, RESELLER
 bigo.sg, 7id17wm5ly, RESELLER
 openx.com, 561470659, RESELLER, 6a698e2ec38604c6
 rubiconproject.com, 28409, RESELLER, 0bfd66d529a55807
+monetrix.ai, 10697, RESELLER
